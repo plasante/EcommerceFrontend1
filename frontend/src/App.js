@@ -4,6 +4,9 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 
+// user components
+import RoutesWithUserChatComponent from "./components/user/RoutesWithUserChatComponent";
+
 // publicly available pages
 import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
@@ -36,21 +39,24 @@ function App() {
     <BrowserRouter>
       <HeaderComponent/>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/product-list" element={<ProductListPage/>}/>
-        <Route path="/product-details" element={<ProductDetailsPage/>}/>
-        <Route path="/product-details/:id" element={<ProductDetailsPage/>}/>
-        <Route path="/cart" element={<CartPage/>}/>
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="*" element={'Page not found 404'}/>
+        <Route element={<RoutesWithUserChatComponent/>}>
+          {/* publicly available routes */}
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/product-list" element={<ProductListPage/>}/>
+          <Route path="/product-details" element={<ProductDetailsPage/>}/>
+          <Route path="/product-details/:id" element={<ProductDetailsPage/>}/>
+          <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/register" element={<RegisterPage/>}/>
+          <Route path="*" element={'Page not found 404'}/>
 
-        {/* user protected routes */}
-        <Route element={<ProtectedRoutesComponent admin={false}/>}>
-          <Route path="/user" element={<UserProfilePage/>}/>
-          <Route path="/user/my-orders" element={<UserOrdersPage/>}/>
-          <Route path="/user/cart-details" element={<UserCartDetailsPage/>}/>
-          <Route path="/user/order-details" element={<UserOrderDetailsPage/>}/>
+          {/* user protected routes */}
+          <Route element={<ProtectedRoutesComponent admin={false}/>}>
+            <Route path="/user" element={<UserProfilePage/>}/>
+            <Route path="/user/my-orders" element={<UserOrdersPage/>}/>
+            <Route path="/user/cart-details" element={<UserCartDetailsPage/>}/>
+            <Route path="/user/order-details" element={<UserOrderDetailsPage/>}/>
+          </Route>
         </Route>
 
         {/* admin protected routes */}
