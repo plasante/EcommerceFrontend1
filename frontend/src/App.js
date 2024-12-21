@@ -5,7 +5,6 @@ import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 
 // user components
-import RoutesWithUserChatComponent from "./components/user/RoutesWithUserChatComponent";
 
 // publicly available pages
 import HomePage from "./pages/HomePage";
@@ -32,6 +31,7 @@ import AdminOrderDetailsPage from "./pages/admin/AdminOrderDetailsPage";
 import AdminOrdersPage from "./pages/admin/AdminOrdersPage";
 import AdminProductsPage from "./pages/admin/AdminProductsPage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
+import RoutesWithUserChatComponent from "./components/user/RoutesWithUserChatComponent";
 
 
 function App() {
@@ -58,7 +58,6 @@ function App() {
             <Route path="/user/order-details" element={<UserOrderDetailsPage/>}/>
           </Route>
         </Route>
-
         {/* admin protected routes */}
         <Route element={<ProtectedRoutesComponent admin={true}/>}>
           <Route path="/admin/users" element={<AdminUsersPage/>}/>
