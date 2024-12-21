@@ -1,4 +1,10 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+
+// components
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
+
+// publicly available pages
 import HomePage from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductListPage from "./pages/ProductListPage";
@@ -24,9 +30,11 @@ import AdminOrdersPage from "./pages/admin/AdminOrdersPage";
 import AdminProductsPage from "./pages/admin/AdminProductsPage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
 
+
 function App() {
   return (
     <BrowserRouter>
+      <HeaderComponent/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/product-list" element={<ProductListPage/>}/>
@@ -59,6 +67,7 @@ function App() {
         </Route>
 
       </Routes>
+      <FooterComponent/>
     </BrowserRouter>
   );
 }
